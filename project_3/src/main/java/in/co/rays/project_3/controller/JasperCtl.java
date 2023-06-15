@@ -42,8 +42,11 @@ public class JasperCtl extends BaseCtl {
 		try {
 			
 			/* Compilation of jrxml file */
+
+			ResourceBundle rb = ResourceBundle.getBundle("in.co.rays.project_3.bundle.system");
+
 			JasperReport jasperReport = JasperCompileManager
-					.compileReport("C:\\Users\\Shailendra rai\\JaspersoftWorkspace\\MyReports\\meritlist.jrxml");
+					.compileReport(rb.getString("jasperreport"));
 
 			HttpSession session = request.getSession(true);
 			UserDTO dto = (UserDTO) session.getAttribute("user");
@@ -54,8 +57,7 @@ public class JasperCtl extends BaseCtl {
 			map.put("ID", 1l);
 			java.sql.Connection conn = null;
 
-			ResourceBundle rb = ResourceBundle.getBundle("in.co.rays.project_3.bundle.system");
-
+			
 
 			String Database = rb.getString("DATABASE");
 
